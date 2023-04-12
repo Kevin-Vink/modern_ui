@@ -1,13 +1,32 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Cera pro', 'Trebuchet MS', sans-serif;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@keyframes scroll {
+  0% {
+    opacity: 1;
+    top: 0.5rem;
+  }
+  30% {
+    opacity: 0;
+    top: 1rem;
+  }
+  35% {
+    opacity: 0;
+    top: 0.5rem;
+  }
+  40%, 100% {
+    opacity: 1;
+    top: 0.5rem;
+  }
+}
+
+.animate-scroll {
+  animation: scroll 2s ease infinite;
 }
