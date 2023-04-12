@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronDown, Dribbble } from 'react-feather';
+import { Aperture, ChevronDown } from 'react-feather';
 import Button from './Button';
 
 function Header() {
@@ -14,8 +14,8 @@ function Header() {
         Skip to content (Press Enter)
       </button>
       <div className="flex flex-row items-center gap-x-2">
-        <Dribbble className="stroke-blue-500" strokeWidth={1} size={30} />
-        <h1 className="font-medium text-xl text-white">Dribbble</h1>
+        <Aperture className="stroke-blue-500" strokeWidth={1} size={30} />
+        <h1 className="font-medium text-xl text-white">UIfy</h1>
       </div>
       <div>
         <ul className="flex flex-row gap-x-6 items-center">
