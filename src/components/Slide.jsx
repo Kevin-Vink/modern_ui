@@ -31,11 +31,11 @@ function Slide({
         <div className="flex z-20 flex-col gap-y-12 max-w-[14rem]">
           <span
             className="py-1 px-2 rounded group-hover:bg-blue-600 transition-colors font-medium
-                tracking-widest w-fit text-xs bg-blue-700 uppercase"
+                tracking-widest w-fit text-xs bg-blue-700 uppercase select-none"
           >
             {label}
           </span>
-          <p className="font-bold text-3xl text-left">{title}</p>
+          <p className="font-bold text-3xl text-left select-none">{title}</p>
         </div>
         <a
           className="font-medium inline-flex items-center group-hover:gap-x-3
