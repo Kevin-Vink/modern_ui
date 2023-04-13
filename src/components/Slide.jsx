@@ -15,7 +15,8 @@ function Slide({
     <button
       type="button"
       onClick={() => setSlide(index)}
-      className={`w-slide relative transition-all ${index === currentSlide ? 'z-10' : 'z-0'} ${translateSlide()}`}
+      className={`w-slide relative transition-all bg-neutral-700 
+      ${index === currentSlide ? 'z-10' : 'z-0'} ${translateSlide()}`}
     >
       <div className={`absolute z-10 top-0 left-0 w-full h-full transition-all 
       ${index === currentSlide ? 'bg-woodsmoke/15 pointer-events-none' : 'bg-woodsmoke/75'}`}
