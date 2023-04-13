@@ -5,7 +5,7 @@ import Button from './Button';
 function Header() {
   return (
     <header className="w-full z-30 h-auto max-w-3/4 m-auto py-4 flex items-center bg-woodsmoke/70
-    justify-between backdrop-blur-sm sticky relative top-0 left-0"
+    justify-between backdrop-blur-md sticky relative top-0 left-0"
     >
       <button
         type="button"
@@ -21,23 +21,23 @@ function Header() {
         <h1 className="font-medium text-xl text-white">UIfy</h1>
       </div>
       <div>
-        <ul className="flex flex-row gap-x-6 items-center">
-          <li className="text-sm text-white font-medium cursor-pointer flex items-center gap-x-1">
+        <ul className="flex flex-row gap-x-10 items-center">
+          <li className="text-sm text-white font-medium tracking-wide cursor-pointer flex items-center gap-x-1">
             Products
             <ChevronDown size={20} />
           </li>
-          <li className="text-sm text-white font-medium cursor-pointer flex items-center gap-x-1">
+          <li className="text-sm text-white font-medium tracking-wide cursor-pointer flex items-center gap-x-1">
             Solutions
             <ChevronDown size={20} />
           </li>
-          <li className="text-sm text-white font-medium cursor-pointer flex items-center gap-x-1">
+          <li className="text-sm text-white font-medium tracking-wide cursor-pointer flex items-center gap-x-1">
             Company
             <ChevronDown size={20} />
           </li>
 
-          <li className="text-sm text-white font-medium cursor-pointer">Customers</li>
-          <li className="text-sm text-white font-medium cursor-pointer">Pricing</li>
-          <li className="text-sm text-white font-medium cursor-pointer">Blog</li>
+          <li className="text-sm text-white font-medium tracking-wide cursor-pointer">Customers</li>
+          <li className="text-sm text-white font-medium tracking-wide cursor-pointer">Pricing</li>
+          <li className="text-sm text-white font-medium tracking-wide cursor-pointer">Blog</li>
         </ul>
       </div>
       <div className="flex flex-row gap-x-4 items-center">
