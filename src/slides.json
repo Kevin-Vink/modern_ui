@@ -1,0 +1,20 @@
+[
+  {
+    "label": "industry update",
+    "title": "New UX guide for designers",
+    "cta": "Learn about New UX Guide",
+    "image": "./images/1.jpg"
+  },
+  {
+    "label": "product update",
+    "title": "Announcing CSS class library",
+    "cta": "Learn about Class Library",
+    "image": "./images/2.jpg"
+  },
+  {
+    "label": "new product",
+    "title": "Install the new UIfy app",
+    "cta": "Learn about The App",
+    "image": "./images/3.jpg"
+  }
+]
