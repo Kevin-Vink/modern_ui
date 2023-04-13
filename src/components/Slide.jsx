@@ -21,7 +21,7 @@ function Slide({
       ${index === currentSlide ? 'bg-woodsmoke/15 pointer-events-none' : 'bg-woodsmoke/75'}`}
       />
       <div className={`w-full rounded-2xl z-0 text-white p-8  ${index === currentSlide ? 'h-[28rem]' : 'h-[23rem]'} 
-      flex flex-col gap-y-2 justify-between group relative cursor-pointer shadow-slide-drop transition-all`}
+      flex flex-col gap-y-2 justify-between group relative cursor-pointer shadow-slide-drop`}
       >
         <div
           className="absolute z-10 top-0 left-0 w-full h-full bg-cover rounded-xl shadow-slide"
