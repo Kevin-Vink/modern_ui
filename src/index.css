@@ -7,26 +7,3 @@
     font-family: 'Cera pro', 'Trebuchet MS', sans-serif;
   }
 }
-
-@keyframes scroll {
-  0% {
-    opacity: 1;
-    top: 0.5rem;
-  }
-  30% {
-    opacity: 0;
-    top: 1rem;
-  }
-  35% {
-    opacity: 0;
-    top: 0.5rem;
-  }
-  40%, 100% {
-    opacity: 1;
-    top: 0.5rem;
-  }
-}
-
-.animate-scroll {
-  animation: scroll 2s ease infinite;
-}

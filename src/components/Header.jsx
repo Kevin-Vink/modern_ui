@@ -4,7 +4,7 @@ import Button from './Button';
 
 function Header() {
   return (
-    <header className="w-full z-30 h-auto max-w-3/4 m-auto py-4 flex items-center bg-woodsmoke/70 justify-between backdrop-blur-md sticky relative top-0 left-0">
+    <header className="w-full z-30 h-auto max-w-3/4 m-auto py-4 flex items-center bg-woodsmoke/70 justify-between backdrop-blur-sm sticky relative top-0 left-0">
       <button
         type="button"
         tabIndex={0}

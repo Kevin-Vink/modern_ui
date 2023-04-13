@@ -5,6 +5,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      width: {
+        slide: '52.5rem',
+      },
+      screens: {
+        '2xl': '1537px',
+      },
       maxWidth: {
         '3/4': '75%',
       },

@@ -17,6 +17,7 @@ module.exports = {
     'react',
   ],
   rules: {
+    'max-len': ['warn', { code: 120 }],
     'react/prop-types': 'off',
     'linebreak-style': 'off',
   },
