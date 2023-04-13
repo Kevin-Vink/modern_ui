@@ -36,7 +36,7 @@ function Slide({
           >
             {label}
           </span>
-          <p className="font-bold text-3xl">{title}</p>
+          <p className="font-bold text-3xl text-left">{title}</p>
         </div>
         <a
           className="font-medium inline-flex items-center group-hover:gap-x-3 transition-all gap-x-2 z-10 relative"
