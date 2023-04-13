@@ -3,9 +3,9 @@ import { ArrowRight, ChevronLeft, ChevronRight } from 'react-feather';
 
 function Carousel() {
   return (
-    <div className="w-full h-full flex flex-col items-center justify-center gap-y-6">
-      <div className="w-full h-full flex items-center relative">
-        <div className="w-slide h-fit relative translate-x-20">
+    <div className="overflow-hidden w-full h-full flex flex-col items-center justify-center gap-y-6">
+      <div className="h-full flex items-center">
+        <div className="w-slide flex-1 h-fit translate-x-20">
           <div className="absolute z-10 top-0 left-0 w-full h-full bg-woodsmoke/75" />
           <div className="w-full rounded-2xl z-0 text-white p-8 h-[23rem] flex flex-col
           gap-y-2 justify-between group relative cursor-pointer shadow-slide-drop"
@@ -32,7 +32,7 @@ function Carousel() {
             </a>
           </div>
         </div>
-        <div className="w-slide h-fit relative">
+        <div className="w-slide flex-1 h-fit">
           <div className="absolute rounded-2xl z-20 top-0 left-0 w-full h-full bg-woodsmoke/15 pointer-events-none" />
           <div className="w-full z-10 text-white p-8 h-[28rem] flex flex-col
           gap-y-2 justify-between group relative cursor-pointer shadow-slide-drop"
@@ -59,7 +59,7 @@ function Carousel() {
             </a>
           </div>
         </div>
-        <div className="w-slide h-fit relative -translate-x-20">
+        <div className="w-slide flex-1 h-fit -translate-x-20">
           <div className="absolute z-10 top-0 left-0 w-full h-full bg-woodsmoke/75" />
           <div className="w-full z-0 text-white p-8 h-[23rem] flex flex-col
           gap-y-2 justify-between group relative cursor-pointer shadow-slide-drop"

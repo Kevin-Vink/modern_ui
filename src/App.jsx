@@ -10,7 +10,7 @@ function App() {
       <div className="w-full h-full min-h-screen flex flex-col">
 
         <div className="w-full h-full 2xl:max-w-3/4 m-auto flex-1 flex flex-col items-center justify-between">
-          <div className="w-full z-20 min-h-[70vh] 2xl:min-h-0 h-full flex flex-col
+          <div className="w-full z-20 min-h-[75vh] 2xl:min-h-0 h-full flex flex-col
           justify-center items-center gap-y-8"
           >
             <h1 className="text-7xl text-neutral-100 font-bold max-w-[45rem] text-center">
