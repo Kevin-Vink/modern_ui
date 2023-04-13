@@ -10,8 +10,6 @@ function Slide({
     return '';
   }
 
-  console.log(index, currentSlide, slides);
-
   return (
     /* translate-x-20, -translate-x-20 */
     <button
