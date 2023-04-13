@@ -4,12 +4,15 @@ import Button from './Button';
 
 function Header() {
   return (
-    <header className="w-full z-30 h-auto max-w-3/4 m-auto py-4 flex items-center bg-woodsmoke/70 justify-between backdrop-blur-sm sticky relative top-0 left-0">
+    <header className="w-full z-30 h-auto max-w-3/4 m-auto py-4 flex items-center bg-woodsmoke/70
+    justify-between backdrop-blur-sm sticky relative top-0 left-0"
+    >
       <button
         type="button"
         tabIndex={0}
-        className="absolute text-sm top-16 focus:top-20 font-medium focus:pointer-events-auto focus:opacity-100 transition-all left-1/2 -translate-x-1/2
-      text-white bg-blue-600 rounded px-10 py-1.5 opacity-0 pointer-events-none"
+        className="absolute text-sm top-16 focus:top-20 font-medium focus:pointer-events-auto focus:opacity-100
+        transition-all left-1/2 -translate-x-1/2 text-white bg-blue-600 rounded px-10 py-1.5
+        opacity-0 pointer-events-none"
       >
         Skip to content (Press Enter)
       </button>
