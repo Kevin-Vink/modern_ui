@@ -15,7 +15,7 @@ function Slide({
     <button
       type="button"
       onClick={() => setSlide(index)}
-      className={`w-slide relative transition-all bg-neutral-700 
+      className={`w-slide relative transition-all bg-neutral-700 rounded-2xl 
       ${index === currentSlide ? 'z-10' : 'z-0'} ${translateSlide()}`}
     >
       <div className={`absolute z-10 top-0 left-0 w-full h-full transition-all 
@@ -38,8 +38,9 @@ function Slide({
           <p className="font-bold text-3xl text-left">{title}</p>
         </div>
         <a
-          className="font-medium inline-flex items-center group-hover:gap-x-3 transition-all gap-x-2 z-10 relative"
-          href="https://google.com"
+          className="font-medium inline-flex items-center group-hover:gap-x-3
+          transition-all gap-x-2 z-10 relative select-none"
+          href="https://ui-design-2.netlify.app/#"
         >
           {cta}
           <ArrowRight size={20} />
