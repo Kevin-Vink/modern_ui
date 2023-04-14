@@ -4,7 +4,7 @@ import Slide from './Slide';
 import slidesData from '../slides.json';
 
 function Carousel() {
-  const [slide, setSlide] = useState(2);
+  const [slide, setSlide] = useState(Math.ceil((slidesData.length / 2)));
   const [slides] = useState(slidesData);
 
   const handleNext = () => {
@@ -31,6 +31,7 @@ function Carousel() {
             key={data.title}
             index={index + 1}
             setSlide={setSlide}
+            center={Math.ceil(slidesData.length / 2)}
             slides={slides.length}
             currentSlide={slide}
             label={data.label}

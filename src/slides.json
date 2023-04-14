@@ -1,5 +1,11 @@
 [
   {
+    "label": "product update",
+    "title": "UIfy new category",
+    "cta": "Learn about New Category",
+    "image": "./images/4.jpg"
+  },
+  {
     "label": "industry update",
     "title": "New UX guide for designers",
     "cta": "Learn about New UX Guide",
@@ -16,5 +22,11 @@
     "title": "Install the new UIfy app",
     "cta": "Learn about The App",
     "image": "./images/3.jpg"
+  },
+  {
+    "label": "industry update",
+    "title": "UIfy V2.2 Dashboard released",
+    "cta": "View the release notes",
+    "image": "./images/5.jpg"
   }
 ]
