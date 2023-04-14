@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'react-feather';
 import Slide from './Slide';
 import slidesData from '../slides.json';
@@ -12,7 +12,7 @@ function Carousel() {
       setSlide(1);
       return;
     }
-    setSlide((prev) => prev + 1);
+    setSlide(slide + 1);
   };
 
   const handlePrevious = () => {
@@ -22,6 +22,13 @@ function Carousel() {
     }
     setSlide((prev) => prev - 1);
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSlide((prev) => (prev === slides.length ? 1 : prev + 1));
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [slide]);
 
   return (
     <div className="overflow-x-clip w-full h-full flex flex-col items-center justify-center gap-y-6">

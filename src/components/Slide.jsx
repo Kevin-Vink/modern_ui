@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ArrowRight } from 'react-feather';
 import { useSwipeable } from 'react-swipeable';
 import useSlideWidth from '../hooks/useSlideWidth';
@@ -53,7 +53,29 @@ function Slide({
 
   const handlers = useSwipeable({
     onSwiped: (eventData) => handleSwipe(eventData),
+    trackMouse: true,
+    preventScrollOnSwipe: true,
   });
+
+  useEffect(() => {
+    // Update the width of the progress bar in the current slide and animate the width for each second
+    const progressBar = document.querySelector(`#progress-${currentSlide}`);
+
+    progressBar.animate(
+      [
+        {
+          width: `${0}%`,
+        },
+        {
+          width: `${100}%`,
+
+        },
+      ],
+      {
+        duration: 3900,
+      },
+    );
+  }, [currentSlide]);
 
   return (
     <button
@@ -98,6 +120,14 @@ function Slide({
           {cta}
           <ArrowRight size={20} />
         </a>
+        <div className={`${index === currentSlide ? 'block' : 'hidden'} 
+        absolute left-0 bottom-0 w-full h-1 md:h-2 bg-gray-500 rounded-b-2xl overflow-hidden`}
+        >
+          <div
+            id={`progress-${index}`}
+            className="bg-blue-500 h-full"
+          />
+        </div>
       </div>
     </button>
   );
