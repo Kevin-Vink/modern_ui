@@ -54,7 +54,6 @@ function Slide({
   const handlers = useSwipeable({
     onSwiped: (eventData) => handleSwipe(eventData),
     trackMouse: true,
-    preventScrollOnSwipe: true,
   });
 
   useEffect(() => {
