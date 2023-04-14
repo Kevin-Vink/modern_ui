@@ -5,6 +5,7 @@ function Slide({
   label, title, cta, image, index, currentSlide, setSlide, center, slides,
 }) {
   const slideWidth = 840;
+  const offset = 40;
 
   function translateSlide() {
     // Center the current slide
@@ -12,35 +13,44 @@ function Slide({
 
     // The previous and next slide should be shown next to the current slide,
     // when the first slide is shown the last slide should be shown to the left of to it,
-    if (currentSlide === 1 && index === slides) return (-slideWidth * 3) + 20;
+    if (currentSlide === 1 && index === slides) return (-slideWidth * 3) + offset;
     // and when the last slide is shown the first slide should be shown to the right of it.
-    if (currentSlide === slides && index === 1) return (slideWidth * 3) - 20;
+    if (currentSlide === slides && index === 1) return (slideWidth * 3) - offset;
 
     // Slide to the left
-    if (index < currentSlide) return -slideWidth * (index - center) - slideWidth;
+    if (index < currentSlide) return -slideWidth * (index - center) - slideWidth + offset;
     // Slide to the right
-    if (index > currentSlide) return -slideWidth * (index - center) + slideWidth;
+    if (index > currentSlide) return -slideWidth * (index - center) + slideWidth - offset;
 
     return index - center > 0 ? slideWidth : -slideWidth;
   }
 
-  function setVisibility() {
-    if (currentSlide === slides && index === 1) return 'visible';
-    if (currentSlide === 1 && index === slides) return 'visible';
-    if (index > (currentSlide + 1) || index < (currentSlide - 1)) return 'hidden';
+  function setOpacity() {
+    if (currentSlide === slides && index === 1) return '1';
+    if (currentSlide === 1 && index === slides) return '1';
+    if (index > (currentSlide + 1) || index < (currentSlide - 1)) return '0';
 
-    return 'visible';
+    return '1';
+  }
+
+  function setPointerEvents() {
+    if (currentSlide === slides && index === 1) return 'auto';
+    if (currentSlide === 1 && index === slides) return 'auto';
+    if (index > (currentSlide + 1) || index < (currentSlide - 1)) return 'none';
+
+    return 'auto';
   }
 
   return (
     <button
       type="button"
       onClick={() => setSlide(index)}
-      className={`w-slide relative bg-neutral-700 rounded-2xl 
-      ${index === currentSlide ? 'z-10' : 'z-0'}`}
+      className={`w-slide relative bg-neutral-700 rounded-2xl transition-all duration-1000 ease-out
+       ${index === currentSlide ? 'z-10' : 'z-0'}`}
       style={{
         transform: `translateX(${translateSlide()}px)`,
-        visibility: setVisibility(),
+        opacity: setOpacity(),
+        pointerEvents: setPointerEvents(),
       }}
     >
       <div

@@ -24,7 +24,7 @@ function Carousel() {
   };
 
   return (
-    <div className="overflow-hidden w-full h-full flex flex-col items-center justify-center gap-y-6">
+    <div className="overflow-x-clip w-full h-full flex flex-col items-center justify-center gap-y-6">
       <div className="h-full flex items-center">
         {slides.map((data, index) => (
           <Slide
