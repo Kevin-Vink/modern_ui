@@ -1,11 +1,12 @@
 import React from 'react';
 import { ArrowRight } from 'react-feather';
 import { useSwipeable } from 'react-swipeable';
+import useSlideWidth from '../hooks/useSlideWidth';
 
 function Slide({
   label, title, cta, image, index, currentSlide, setSlide, center, slides,
 }) {
-  const slideWidth = document.getElementsByClassName('slide')[0]?.clientWidth;
+  const slideWidth = useSlideWidth();
   const offset = 40;
 
   function translateSlide() {
@@ -59,7 +60,7 @@ function Slide({
       type="button"
       onClick={() => setSlide(index)}
       {...handlers}
-      className={`slide w-slide-sm lg:w-slide-lg xl:w-slide-xl relative bg-neutral-700 duration-1000 ease-out
+      className={`slide w-slide-sm lg:w-slide-lg xl:w-slide-xl relative bg-neutral-700 duration-750 ease-out
        ${index === currentSlide ? 'z-10' : 'z-0'} rounded-2xl transition-all`}
       style={{
         transform: `translateX(${translateSlide()}px)`,
@@ -72,7 +73,7 @@ function Slide({
       ${index === currentSlide ? 'bg-woodsmoke/25 pointer-events-none' : 'bg-woodsmoke/75'}`}
       />
       <div
-        className={`w-full rounded-2xl text-white p-8 ${index === currentSlide
+        className={`w-full rounded-2xl text-white p-6 lg:p-8 ${index === currentSlide
           ? 'h-[20rem] lg:h-[23rem] xl:h-[28rem]' : 'h-[18rem] lg:h-[20rem] xl:h-[23rem] z-0'} 
       flex flex-col gap-y-2 justify-between group relative cursor-pointer shadow-slide-drop`}
       >
@@ -90,7 +91,7 @@ function Slide({
           <p className="font-bold text-xl xl:text-3xl text-left select-none">{title}</p>
         </div>
         <a
-          className="font-medium inline-flex items-center group-hover:gap-x-3
+          className="font-medium text-sm lg:text-base inline-flex items-center group-hover:gap-x-3
           transition-all gap-x-2 z-10 relative select-none"
           href="https://ui-design-2.netlify.app/#"
         >
