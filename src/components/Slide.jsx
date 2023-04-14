@@ -44,9 +44,9 @@ function Slide({
 
   function handleSwipe(eventData) {
     if (eventData.dir.toLowerCase() === 'left') {
-      setSlide(currentSlide === 1 ? slides : currentSlide - 1);
-    } else if (eventData.dir.toLowerCase() === 'right') {
       setSlide(currentSlide === slides ? 1 : currentSlide + 1);
+    } else if (eventData.dir.toLowerCase() === 'right') {
+      setSlide(currentSlide === 1 ? slides : currentSlide - 1);
     }
   }
 
