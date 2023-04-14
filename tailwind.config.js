@@ -11,10 +11,12 @@ module.exports = {
         'slide-xl': '52.5rem',
       },
       screens: {
+        xs: '400px',
         '2xl': '1537px',
       },
       maxWidth: {
         '3/4': '75%',
+        '9/10': '90%',
       },
       boxShadow: {
         slide: 'inset 0 -175px 175px -75px #0e1012',
