@@ -6,7 +6,9 @@ module.exports = {
   theme: {
     extend: {
       width: {
-        slide: '52.5rem',
+        'slide-sm': '15.625rem',
+        'slide-lg': '25rem',
+        'slide-xl': '52.5rem',
       },
       screens: {
         '2xl': '1537px',

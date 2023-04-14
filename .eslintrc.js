@@ -17,6 +17,7 @@ module.exports = {
     'react',
   ],
   rules: {
+    'react/jsx-props-no-spreading': 'off',
     'no-trailing-spaces': ['error', { ignoreComments: true }],
     'max-len': ['warn', { code: 120 }],
     'react/prop-types': 'off',
