@@ -11,7 +11,7 @@ const Types = {
 const { REACT_APP_DURATION } = process.env;
 
 function Slide({
-  label, title, cta, image, index, currentSlide, setSlide, center, slides, type, setDuration, duration,
+  label, title, cta, image, index, currentSlide, setSlide, center, slides, type, setDuration,
 }) {
   const slideWidth = useSlideWidth();
   const progressBarRef = useRef();
@@ -100,7 +100,7 @@ function Slide({
             },
           ],
           {
-            duration,
+            duration: parseInt(REACT_APP_DURATION, 10),
           },
         );
       }
