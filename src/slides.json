@@ -10,35 +10,35 @@
     "label": "new product",
     "title": "Install the new UIfy app",
     "cta": "Learn about The App",
-    "media": "./images/3.jpg",
+    "media": "./images/3.webp",
     "type": "image"
   },
   {
     "label": "product update",
     "title": "UIfy new category",
     "cta": "Learn about New Category",
-    "media": "./images/4.jpg",
+    "media": "./images/4.webp",
     "type": "image"
   },
   {
     "label": "industry update",
     "title": "UIfy V2.2 Dashboard released",
     "cta": "View the release notes",
-    "media": "./images/5.jpg",
+    "media": "./images/5.webp",
     "type": "image"
   },
   {
     "label": "company update",
     "title": "New careers available",
     "cta": "View the careers page",
-    "media": "./images/6.jpg",
+    "media": "./images/6.webp",
     "type": "image"
   },
   {
     "label": "new product",
     "title": "Procedurally generate UI's",
     "cta": "View the release notes",
-    "media": "./images/7.jpg",
+    "media": "./images/7.webp",
     "type": "image"
   },
   {
