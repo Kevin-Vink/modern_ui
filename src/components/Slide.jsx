@@ -176,13 +176,20 @@ function Slide({
             >
               <source src={`${media}`} type="video/mp4" />
             </video>
-            <span
-              className="py-1 px-2 rounded group-hover:bg-blue-600 transition-colors font-medium
-                tracking-widest w-fit text-xs bg-blue-700 uppercase select-none absolute
-                top-6 lg:top-8 left-6 lg:left-8"
+            <div className="absolute z-0 left-0 top-0 h-full w-full
+            bg-gradient-to-br from-woodsmoke/50 via-transparent to-transparent"
+            />
+            <div className="absolute top-6 lg:top-8 left-6 lg:left-8
+            max-w-[10rem]w lg:max-w-[14rem] flex flex-col gap-y-10"
             >
-              {label}
-            </span>
+              <span
+                className="py-1 px-2 rounded group-hover:bg-blue-600 transition-colors font-medium
+                  tracking-widest w-fit text-xs bg-blue-700 uppercase select-none "
+              >
+                {label}
+              </span>
+              <p className="font-bold text-xl xl:text-3xl text-left select-none">{title}</p>
+            </div>
             <a
               className="font-medium text-sm lg:text-base group-hover:gap-x-3 items-center select-none
           transition-all gap-x-2 z-10 absolute bottom-6 lg:bottom-8 left-6 lg:left-8 inline-flex"
