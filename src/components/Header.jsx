@@ -52,15 +52,6 @@ function Header() {
           <Button text="Sign Up" />
         </div>
 
-        {/* <div className="flex xl:hidden gap-x-4 md:gap-x-10"> */}
-        {/*  <Button text="Sign Up" /> */}
-        {/*  {showMenu ? ( */}
-        {/*    <X onClick={() => setShowMenu(false)} className="stroke-white" size={30} /> */}
-        {/*  ) : ( */}
-        {/*    <Menu onClick={() => setShowMenu(true)} className="stroke-white" size={30} /> */}
-        {/*  )} */}
-        {/* </div> */}
-
         <div className="flex xl:hidden gap-x-4 sm:gap-x-6 md:gap-x-10">
           <Button text="Sign Up" />
           <button
