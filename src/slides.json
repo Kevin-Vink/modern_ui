@@ -1,51 +1,51 @@
 [
   {
-    "label": "industry update",
-    "title": "New UX guide for designers",
-    "cta": "Learn about New UX Guide",
-    "image": "./images/1.jpg",
-    "type": "image"
-  },
-  {
     "label": "product update",
     "title": "Announcing CSS class library",
     "cta": "Learn about Class Library",
-    "image": "./videos/2.mp4",
+    "media": "./videos/1.mp4",
     "type": "video"
   },
   {
     "label": "new product",
     "title": "Install the new UIfy app",
     "cta": "Learn about The App",
-    "image": "./images/3.jpg",
+    "media": "./images/3.jpg",
     "type": "image"
   },
   {
     "label": "product update",
     "title": "UIfy new category",
     "cta": "Learn about New Category",
-    "image": "./images/4.jpg",
+    "media": "./images/4.jpg",
     "type": "image"
   },
   {
     "label": "industry update",
     "title": "UIfy V2.2 Dashboard released",
     "cta": "View the release notes",
-    "image": "./images/5.jpg",
+    "media": "./images/5.jpg",
     "type": "image"
   },
   {
     "label": "company update",
     "title": "New careers available",
     "cta": "View the careers page",
-    "image": "./images/6.jpg",
+    "media": "./images/6.jpg",
     "type": "image"
   },
   {
     "label": "new product",
     "title": "Procedurally generate UI's",
     "cta": "View the release notes",
-    "image": "./images/7.jpg",
+    "media": "./images/7.jpg",
     "type": "image"
+  },
+  {
+    "label": "industry update",
+    "title": "The Power of UI/UX Design: Creating Engaging User Experiences",
+    "cta": "View the article",
+    "media": "./videos/2.mp4",
+    "type": "video"
   }
 ]

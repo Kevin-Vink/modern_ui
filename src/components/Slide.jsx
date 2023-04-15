@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ArrowRight } from 'react-feather';
 import { useSwipeable } from 'react-swipeable';
 import useSlideWidth from '../hooks/useSlideWidth';
@@ -11,9 +11,11 @@ const Types = {
 const { REACT_APP_DURATION } = process.env;
 
 function Slide({
-  label, title, cta, image, index, currentSlide, setSlide, center, slides, type, setDuration,
+  label, title, cta, media, index, currentSlide, setSlide, center, slides, type, setDuration,
 }) {
   const slideWidth = useSlideWidth();
+  const [videoDuration, setVideoDuration] = useState(null);
+
   const progressBarRef = useRef();
 
   const offset = 40;
@@ -65,12 +67,12 @@ function Slide({
     trackMouse: true,
   });
 
-  useEffect(
-    () => {
-      // Update the width of the progress bar in the current slide and animate the width for each second
-      if (currentSlide === index && type === Types.Video) {
-        const video = document.querySelector(`#video-${index}`);
+  useEffect(() => {
+    // Update the width of the progress bar in the current slide and animate the width for each second
+    const video = document.querySelector(`#video-${index}`);
 
+    if (currentSlide === index && type === Types.Video) {
+      if (videoDuration !== null) {
         progressBarRef.current.animate(
           [
             {
@@ -81,33 +83,40 @@ function Slide({
             },
           ],
           {
-            duration: video.duration * 1000,
+            duration: videoDuration * 1000,
           },
         );
 
-        setDuration(Math.round(video.duration * 1000));
-        video.currentTime = 0;
+        setDuration(Math.round(videoDuration * 1000));
         video.play();
-      } else if (currentSlide === index && type === Types.Image) {
-        setDuration(parseInt(REACT_APP_DURATION, 10));
-        progressBarRef.current.animate(
-          [
-            {
-              width: `${0}%`,
-            },
-            {
-              width: `${100}%`,
-            },
-          ],
-          {
-            duration: parseInt(REACT_APP_DURATION, 10),
-          },
-        );
-      }
-    },
 
-    [currentSlide],
-  );
+        setTimeout(() => {
+          video.pause();
+          video.currentTime = 0;
+        }, (videoDuration * 1000) + 200);
+      }
+    } else if (currentSlide === index && type === Types.Image) {
+      setDuration(parseInt(REACT_APP_DURATION, 10));
+      progressBarRef.current.animate(
+        [
+          {
+            width: `${0}%`,
+          },
+          {
+            width: `${100}%`,
+          },
+        ],
+        {
+          duration: parseInt(REACT_APP_DURATION, 10),
+        },
+      );
+    }
+
+    if (video && currentSlide !== index) {
+      video.pause();
+      video.currentTime = 0;
+    }
+  }, [currentSlide, videoDuration]);
 
   return (
     <button
@@ -136,7 +145,7 @@ function Slide({
           <>
             <div
               className="absolute z-0 top-0 left-0 w-full h-full rounded-2xl shadow-slide bg-cover"
-              style={{ backgroundImage: `url(${image})` }}
+              style={{ backgroundImage: `url(${media})` }}
             />
             <div className="flex z-10 flex-col gap-y-6 xl:gap-y-12 max-w-[10rem]w lg:max-w-[14rem]">
               <span
@@ -160,12 +169,12 @@ function Slide({
           <>
             <video
               id={`video-${index}`}
+              onLoadedMetadata={(e) => setVideoDuration(e.target.duration)}
               className="w-full h-full object-cover rounded-2xl"
               playsInline
               muted
-              autoPlay
             >
-              <source src={`${image}`} type="video/mp4" />
+              <source src={`${media}`} type="video/mp4" />
             </video>
             <span
               className="py-1 px-2 rounded group-hover:bg-blue-600 transition-colors font-medium
@@ -174,6 +183,14 @@ function Slide({
             >
               {label}
             </span>
+            <a
+              className="font-medium text-sm lg:text-base group-hover:gap-x-3 items-center select-none
+          transition-all gap-x-2 z-10 absolute bottom-6 lg:bottom-8 left-6 lg:left-8 inline-flex"
+              href="https://ui-design-2.netlify.app/#"
+            >
+              {cta}
+              <ArrowRight size={20} />
+            </a>
           </>
         )}
         <div className={`${index === currentSlide ? 'block' : 'hidden'} 
@@ -182,7 +199,7 @@ function Slide({
         >
           <div
             ref={progressBarRef}
-            className="bg-blue-500 h-full"
+            className="bg-blue-500 h-full w-full"
           />
         </div>
       </div>
