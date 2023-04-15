@@ -7,3 +7,7 @@
     font-family: 'Cera pro', 'Trebuchet MS', sans-serif;
   }
 }
+
+header {
+  backdrop-filter: blur(12px);
+}

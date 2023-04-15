@@ -10,7 +10,7 @@ function Header() {
 
   return (
     <header className={`w-full z-30 fixed ${showMenu && 'h-screen bg-woodsmoke/95'} xl:!h-auto py-4 bg-woodsmoke/70 
-      xl:!bg-woodsmoke/70 backdrop-blur-md top-0 left-0 flex flex-col`}
+      xl:!bg-woodsmoke/70 top-0 left-0 flex flex-col`}
     >
       <div className="max-w-9/10 xl:max-w-3/4 m-auto flex w-full items-center justify-between">
         <button
