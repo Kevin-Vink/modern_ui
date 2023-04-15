@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { ArrowRight, Pause, Play } from 'react-feather';
+import React, { useEffect, useRef } from 'react';
+import { ArrowRight } from 'react-feather';
 import { useSwipeable } from 'react-swipeable';
 import useSlideWidth from '../hooks/useSlideWidth';
 
@@ -9,11 +9,12 @@ const Types = {
 };
 
 const { REACT_APP_DURATION } = process.env;
+
 function Slide({
   label, title, cta, image, index, currentSlide, setSlide, center, slides, type, setDuration, duration,
 }) {
   const slideWidth = useSlideWidth();
-  const [isPlaying, setIsPlaying] = useState(false);
+  const progressBarRef = useRef();
 
   const offset = 40;
 
@@ -67,37 +68,35 @@ function Slide({
   useEffect(
     () => {
       // Update the width of the progress bar in the current slide and animate the width for each second
-      const progressBar = document.querySelector(`#progress-${currentSlide}`);
-
       if (currentSlide === index && type === Types.Video) {
         const video = document.querySelector(`#video-${index}`);
-        setDuration(Math.round(video.duration * 1000));
-        video.currentTime = 0;
-        video.play();
-        progressBar.animate(
+
+        progressBarRef.current.animate(
           [
             {
               width: `${0}%`,
             },
             {
               width: `${100}%`,
-
             },
           ],
           {
             duration: video.duration * 1000,
           },
         );
+
+        setDuration(Math.round(video.duration * 1000));
+        video.currentTime = 0;
+        video.play();
       } else if (currentSlide === index && type === Types.Image) {
         setDuration(parseInt(REACT_APP_DURATION, 10));
-        progressBar.animate(
+        progressBarRef.current.animate(
           [
             {
               width: `${0}%`,
             },
             {
               width: `${100}%`,
-
             },
           ],
           {
@@ -128,7 +127,7 @@ function Slide({
       ${index === currentSlide ? 'bg-woodsmoke/25 pointer-events-none' : 'bg-woodsmoke/75'}`}
       />
       <div
-        className={`w-full rounded-2xl text-white group relative cursor-pointer shadow-slide-drop
+        className={`w-full rounded-2xl text-white group relative cursor-pointer shadow-slide-drop overflow-hidden
         ${type === Types.Image && 'p-6 lg:p-8 flex flex-col gap-y-2 justify-between'}  
         ${index === currentSlide ? 'h-[20rem] lg:h-[23rem] xl:h-[28rem]' : 'h-[18rem] lg:h-[20rem] xl:h-[23rem] z-0'} 
         `}
@@ -136,7 +135,7 @@ function Slide({
         {type === Types.Image ? (
           <>
             <div
-              className="absolute z-0 top-0 left-0 w-full h-full rounded-xl shadow-slide bg-cover"
+              className="absolute z-0 top-0 left-0 w-full h-full rounded-2xl shadow-slide bg-cover"
               style={{ backgroundImage: `url(${image})` }}
             />
             <div className="flex z-10 flex-col gap-y-6 xl:gap-y-12 max-w-[10rem]w lg:max-w-[14rem]">
@@ -161,7 +160,7 @@ function Slide({
           <>
             <video
               id={`video-${index}`}
-              className="w-full h-full object-cover rounded-xl"
+              className="w-full h-full object-cover rounded-2xl"
               playsInline
               muted
               autoPlay
@@ -175,22 +174,14 @@ function Slide({
             >
               {label}
             </span>
-            <div className="flex z-10 w-full h-full group-hover:opacity-100 opacity-0
-            flex-col justify-center items-center absolute top-0 left-0 transition-all"
-            >
-              {isPlaying ? (
-                <Play className="fill-white" size={60} onClick={() => setIsPlaying(false)} />
-              ) : (
-                <Pause className="fill-white" size={60} onClick={() => setIsPlaying(true)} />
-              )}
-            </div>
           </>
         )}
         <div className={`${index === currentSlide ? 'block' : 'hidden'} 
-        absolute left-0 bottom-0 w-full h-1 md:h-2 bg-gray-500 rounded-b-2xl overflow-hidden`}
+        absolute left-0 bottom-0 w-full h-1.5 md:h-2.5 bg-neutral-600/25 backdrop-blur-md
+        rounded-b-2xl overflow-hidden`}
         >
           <div
-            id={`progress-${index}`}
+            ref={progressBarRef}
             className="bg-blue-500 h-full"
           />
         </div>

@@ -56,6 +56,7 @@ function Header() {
           <Button text="Sign Up" />
           <button
             type="button"
+            name="menu"
             onClick={() => setShowMenu(!showMenu)}
             className="flex flex-col justify-center gap-y-2 items-center relative w-10"
           >
