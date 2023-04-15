@@ -17,6 +17,7 @@ module.exports = {
     'react',
   ],
   rules: {
+    'no-nested-ternary': 'off',
     'react/jsx-props-no-spreading': 'off',
     'jsx-a11y/media-has-caption': 'off',
     'no-trailing-spaces': ['error', { ignoreComments: true }],

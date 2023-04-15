@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ArrowRight } from 'react-feather';
+import { ArrowRight, Film, Image } from 'react-feather';
 import { useSwipeable } from 'react-swipeable';
 import useResizeObserver from '../hooks/useResizeObserver';
 
@@ -67,49 +67,42 @@ function Slide({
     trackMouse: true,
   });
 
+  function startProgressBar(duration) {
+    setDuration(parseInt(duration, 10));
+
+    progressBarRef.current.animate(
+      [
+        {
+          width: `${0}%`,
+        },
+        {
+          width: `${100}%`,
+        },
+      ],
+      {
+        duration: parseInt(duration, 10),
+      },
+    );
+  }
+
   useEffect(() => {
     // Update the width of the progress bar in the current slide and animate the width for each second
     const video = document.querySelector(`#video-${index}`);
 
     if (currentSlide === index && type === Types.Video) {
       if (videoDuration !== null) {
-        progressBarRef.current.animate(
-          [
-            {
-              width: `${0}%`,
-            },
-            {
-              width: `${100}%`,
-            },
-          ],
-          {
-            duration: videoDuration * 1000,
-          },
-        );
-
-        setDuration(Math.round(videoDuration * 1000));
+        startProgressBar(videoDuration * 1000);
         video.play();
 
         setTimeout(() => {
           video.pause();
           video.currentTime = 0;
         }, (videoDuration * 1000) + 200);
+      } else if (!media || media === '') {
+        startProgressBar(REACT_APP_DURATION);
       }
     } else if (currentSlide === index && type === Types.Image) {
-      setDuration(parseInt(REACT_APP_DURATION, 10));
-      progressBarRef.current.animate(
-        [
-          {
-            width: `${0}%`,
-          },
-          {
-            width: `${100}%`,
-          },
-        ],
-        {
-          duration: parseInt(REACT_APP_DURATION, 10),
-        },
-      );
+      startProgressBar(REACT_APP_DURATION);
     }
 
     if (video && currentSlide !== index) {
@@ -143,10 +136,19 @@ function Slide({
       >
         {type === Types.Image ? (
           <>
-            <div
-              className="absolute z-0 top-0 left-0 w-full h-full rounded-2xl shadow-slide bg-cover"
-              style={{ backgroundImage: `url(${media})` }}
-            />
+            {media && media !== '' ? (
+              <div
+                className="absolute z-0 top-0 left-0 w-full h-full rounded-2xl shadow-slide bg-cover"
+                style={{ backgroundImage: `url(${media})` }}
+              />
+            ) : (
+              <div
+                className="absolute z-0 top-0 left-0 w-full h-full rounded-2xl
+                shadow-slide bg-cover flex items-center justify-center"
+              >
+                <Image className="stroke-neutral-500" size={60} />
+              </div>
+            )}
             <div className="flex z-10 flex-col gap-y-6 xl:gap-y-12 max-w-[10rem]w lg:max-w-[14rem]">
               <span
                 className="py-1 px-2 rounded group-hover:bg-blue-600 transition-colors font-medium
@@ -167,18 +169,26 @@ function Slide({
           </>
         ) : (
           <>
-            <video
-              id={`video-${index}`}
-              onLoadedMetadata={(e) => setVideoDuration(e.target.duration)}
-              className="w-full h-full object-cover rounded-2xl"
-              playsInline
-              muted
-            >
-              <source src={`${media}`} type="video/mp4" />
-            </video>
-            <div className="absolute z-0 left-0 top-0 h-full w-full
-            lg:bg-gradient-to-br from-woodsmoke/50 via-transparent to-transparent"
-            />
+            {media && media !== '' ? (
+              <>
+                <video
+                  id={`video-${index}`}
+                  onLoadedMetadata={(e) => setVideoDuration(e.target.duration)}
+                  className="w-full h-full object-cover rounded-2xl"
+                  playsInline
+                  muted
+                >
+                  <source src={`${media}`} type="video/mp4" />
+                </video>
+                <div className="absolute z-0 left-0 top-0 h-full w-full
+              lg:bg-gradient-to-br from-woodsmoke/50 via-transparent to-transparent"
+                />
+              </>
+            ) : (
+              <div className="w-full h-full flex justify-center items-center">
+                <Film className="stroke-neutral-500" size={60} />
+              </div>
+            )}
             <div className="absolute top-6 lg:top-8 left-6 lg:left-8
             max-w-[10rem]w lg:max-w-[14rem] flex flex-col gap-y-10"
             >
