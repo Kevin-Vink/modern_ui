@@ -61,7 +61,7 @@ function Header() {
         {/*  )} */}
         {/* </div> */}
 
-        <div className="flex xl:hidden xs:gap-x-4 sm:gap-x-6 md:gap-x-10">
+        <div className="flex xl:hidden gap-x-4 sm:gap-x-6 md:gap-x-10">
           <Button text="Sign Up" />
           <button
             type="button"
