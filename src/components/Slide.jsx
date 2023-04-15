@@ -15,9 +15,9 @@ function Slide({
 
     // The previous and next slide should be shown next to the current slide,
     // when the first slide is shown the last slide should be shown to the left of to it,
-    if (currentSlide === 1 && index === slides) return (-slideWidth * 3) + offset;
+    if (currentSlide === 1 && index === slides) return (-slideWidth * center) + offset;
     // and when the last slide is shown the first slide should be shown to the right of it.
-    if (currentSlide === slides && index === 1) return (slideWidth * 3) - offset;
+    if (currentSlide === slides && index === 1) return (slideWidth * center) - offset;
 
     // Slide to the left
     if (index < currentSlide) return -slideWidth * (index - center) - slideWidth + offset;

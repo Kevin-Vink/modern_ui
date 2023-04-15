@@ -5,7 +5,39 @@ import slidesData from '../slides.json';
 
 function Carousel() {
   const [slide, setSlide] = useState(Math.ceil((slidesData.length / 2)));
-  const [slides] = useState(slidesData);
+  const [slides, setSlides] = useState([]);
+
+  useEffect(() => {
+    // The last 3 slides should be placed in the center of the array
+    if (slidesData.length > 3) {
+      // We grab the last 3 slides
+      const lastThreeSlides = slidesData.slice(slidesData.length - 3);
+
+      // The last slide in the array gets placed in the center of the array
+      // The first slide in the array gets placed at the end of the array
+      // The second slide in the array gets placed at the beginning of the array
+      const centerSlides = [
+        ...lastThreeSlides.slice(0, 1),
+        ...lastThreeSlides.slice(2, 3),
+        ...lastThreeSlides.slice(1, 2),
+      ];
+
+      // We grab the first slides of the array
+      const firstSlides = slidesData.slice(0, slidesData.length - 3);
+      // We find the center of the remaining array
+      const center = Math.ceil(firstSlides.length / 2);
+      // We place the three slides in the center of the array
+      const orderedSlides = [
+        ...firstSlides.slice(0, center),
+        ...centerSlides,
+        ...firstSlides.slice(center),
+      ];
+
+      setSlides(orderedSlides);
+      return;
+    }
+    setSlides(slidesData);
+  }, []);
 
   const handleNext = () => {
     if (slide >= slides.length) {
@@ -31,6 +63,7 @@ function Carousel() {
   }, [slide]);
 
   return (
+    slides?.length > 2 && (
     <div className="overflow-x-clip w-full h-full flex flex-col items-center justify-center gap-y-6">
       <div className="h-full flex items-center">
         {slides.map((data, index) => (
@@ -38,7 +71,7 @@ function Carousel() {
             key={data.title}
             index={index + 1}
             setSlide={setSlide}
-            center={Math.ceil(slidesData.length / 2)}
+            center={Math.ceil(slides.length / 2)}
             slides={slides.length}
             currentSlide={slide}
             label={data.label}
@@ -64,6 +97,7 @@ function Carousel() {
         />
       </div>
     </div>
+    )
   );
 }
 

@@ -1,11 +1,5 @@
 [
   {
-    "label": "product update",
-    "title": "UIfy new category",
-    "cta": "Learn about New Category",
-    "image": "./images/4.jpg"
-  },
-  {
     "label": "industry update",
     "title": "New UX guide for designers",
     "cta": "Learn about New UX Guide",
@@ -24,9 +18,27 @@
     "image": "./images/3.jpg"
   },
   {
+    "label": "product update",
+    "title": "UIfy new category",
+    "cta": "Learn about New Category",
+    "image": "./images/4.jpg"
+  },
+  {
     "label": "industry update",
     "title": "UIfy V2.2 Dashboard released",
     "cta": "View the release notes",
     "image": "./images/5.jpg"
+  },
+  {
+    "label": "company update",
+    "title": "New careers available",
+    "cta": "View the careers page",
+    "image": "./images/6.jpg"
+  },
+  {
+    "label": "new product",
+    "title": "Procedurally generate UI's",
+    "cta": "View the release notes",
+    "image": "./images/7.jpg"
   }
 ]

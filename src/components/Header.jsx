@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  Aperture, ChevronDown, Database, Grid, Layers, Menu, Monitor, Package, PenTool, Play, Smartphone, Tag, X,
+  Aperture, ChevronDown, Database, Grid, Layers, Monitor, Package, PenTool, Play, Smartphone, Tag,
 } from 'react-feather';
 import Button from './Button';
 import MenuItem from './MenuItem';
@@ -52,13 +52,31 @@ function Header() {
           <Button text="Sign Up" />
         </div>
 
-        <div className="flex xl:hidden gap-x-4 md:gap-x-10">
+        {/* <div className="flex xl:hidden gap-x-4 md:gap-x-10"> */}
+        {/*  <Button text="Sign Up" /> */}
+        {/*  {showMenu ? ( */}
+        {/*    <X onClick={() => setShowMenu(false)} className="stroke-white" size={30} /> */}
+        {/*  ) : ( */}
+        {/*    <Menu onClick={() => setShowMenu(true)} className="stroke-white" size={30} /> */}
+        {/*  )} */}
+        {/* </div> */}
+
+        <div className="flex xl:hidden xs:gap-x-4 sm:gap-x-6 md:gap-x-10">
           <Button text="Sign Up" />
-          {showMenu ? (
-            <X onClick={() => setShowMenu(false)} className="stroke-white" size={30} />
-          ) : (
-            <Menu onClick={() => setShowMenu(true)} className="stroke-white" size={30} />
-          )}
+          <button
+            type="button"
+            onClick={() => setShowMenu(!showMenu)}
+            className="flex flex-col justify-center gap-y-2 items-center relative w-10"
+          >
+            <span
+              className={`h-0.5 bg-white rounded-full transition-transform w-8 
+              ${showMenu ? 'rotate-45 absolute' : ''}`}
+            />
+            <span
+              className={`h-0.5 bg-white rounded-full transition-transform w-8 
+              ${showMenu ? '-rotate-45 absolute' : ''}`}
+            />
+          </button>
         </div>
       </div>
 
