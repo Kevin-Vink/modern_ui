@@ -57,6 +57,7 @@ function Header() {
           <button
             type="button"
             name="menu"
+            aria-label="menu"
             onClick={() => setShowMenu(!showMenu)}
             className="flex flex-col justify-center gap-y-2 items-center relative w-10"
           >
