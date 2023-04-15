@@ -1,12 +1,18 @@
-import React, { useEffect } from 'react';
-import { ArrowRight } from 'react-feather';
+import React, { useEffect, useState } from 'react';
+import { ArrowRight, Pause, Play } from 'react-feather';
 import { useSwipeable } from 'react-swipeable';
 import useSlideWidth from '../hooks/useSlideWidth';
 
+const Types = {
+  Image: 'image',
+  Video: 'video',
+};
+
 function Slide({
-  label, title, cta, image, index, currentSlide, setSlide, center, slides,
+  label, title, cta, image, index, currentSlide, setSlide, center, slides, type,
 }) {
   const slideWidth = useSlideWidth();
+  const [isPlaying, setIsPlaying] = useState(false);
   const offset = 40;
 
   function translateSlide() {
@@ -102,23 +108,35 @@ function Slide({
           className="absolute z-0 top-0 left-0 w-full h-full rounded-xl shadow-slide bg-cover"
           style={{ backgroundImage: `url(${image})` }}
         />
-        <div className="flex z-10 flex-col gap-y-6 xl:gap-y-12 max-w-[10rem]w lg:max-w-[14rem]">
-          <span
-            className="py-1 px-2 rounded group-hover:bg-blue-600 transition-colors font-medium
+        {type === Types.Image ? (
+          <>
+            <div className="flex z-10 flex-col gap-y-6 xl:gap-y-12 max-w-[10rem]w lg:max-w-[14rem]">
+              <span
+                className="py-1 px-2 rounded group-hover:bg-blue-600 transition-colors font-medium
                 tracking-widest w-fit text-xs bg-blue-700 uppercase select-none"
-          >
-            {label}
-          </span>
-          <p className="font-bold text-xl xl:text-3xl text-left select-none">{title}</p>
-        </div>
-        <a
-          className="font-medium text-sm lg:text-base inline-flex items-center group-hover:gap-x-3
+              >
+                {label}
+              </span>
+              <p className="font-bold text-xl xl:text-3xl text-left select-none">{title}</p>
+            </div>
+            <a
+              className="font-medium text-sm lg:text-base inline-flex items-center group-hover:gap-x-3
           transition-all gap-x-2 z-10 relative select-none"
-          href="https://ui-design-2.netlify.app/#"
-        >
-          {cta}
-          <ArrowRight size={20} />
-        </a>
+              href="https://ui-design-2.netlify.app/#"
+            >
+              {cta}
+              <ArrowRight size={20} />
+            </a>
+          </>
+        ) : (
+          <div className="flex z-10 w-full h-full flex-col justify-center items-center">
+            {isPlaying ? (
+              <Play className="fill-white" size={60} onClick={() => setIsPlaying(false)} />
+            ) : (
+              <Pause className="fill-white" size={60} onClick={() => setIsPlaying(true)} />
+            )}
+          </div>
+        )}
         <div className={`${index === currentSlide ? 'block' : 'hidden'} 
         absolute left-0 bottom-0 w-full h-1 md:h-2 bg-gray-500 rounded-b-2xl overflow-hidden`}
         >

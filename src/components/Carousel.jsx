@@ -78,6 +78,7 @@ function Carousel() {
             cta={data.cta}
             title={data.title}
             image={data.image}
+            type={data.type}
           />
         ))}
       </div>

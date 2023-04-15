@@ -3,42 +3,49 @@
     "label": "industry update",
     "title": "New UX guide for designers",
     "cta": "Learn about New UX Guide",
-    "image": "./images/1.jpg"
+    "image": "./images/1.jpg",
+    "type": "image"
   },
   {
     "label": "product update",
     "title": "Announcing CSS class library",
     "cta": "Learn about Class Library",
-    "image": "./images/2.jpg"
+    "image": "./images/2.jpg",
+    "type": "video"
   },
   {
     "label": "new product",
     "title": "Install the new UIfy app",
     "cta": "Learn about The App",
-    "image": "./images/3.jpg"
+    "image": "./images/3.jpg",
+    "type": "image"
   },
   {
     "label": "product update",
     "title": "UIfy new category",
     "cta": "Learn about New Category",
-    "image": "./images/4.jpg"
+    "image": "./images/4.jpg",
+    "type": "image"
   },
   {
     "label": "industry update",
     "title": "UIfy V2.2 Dashboard released",
     "cta": "View the release notes",
-    "image": "./images/5.jpg"
+    "image": "./images/5.jpg",
+    "type": "image"
   },
   {
     "label": "company update",
     "title": "New careers available",
     "cta": "View the careers page",
-    "image": "./images/6.jpg"
+    "image": "./images/6.jpg",
+    "type": "image"
   },
   {
     "label": "new product",
     "title": "Procedurally generate UI's",
     "cta": "View the release notes",
-    "image": "./images/7.jpg"
+    "image": "./images/7.jpg",
+    "type": "image"
   }
 ]
