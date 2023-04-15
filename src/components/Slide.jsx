@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ArrowRight } from 'react-feather';
 import { useSwipeable } from 'react-swipeable';
-import useSlideWidth from '../hooks/useSlideWidth';
+import useResizeObserver from '../hooks/useResizeObserver';
 
 const Types = {
   Image: 'image',
@@ -13,7 +13,7 @@ const { REACT_APP_DURATION } = process.env;
 function Slide({
   label, title, cta, media, index, currentSlide, setSlide, center, slides, type, setDuration,
 }) {
-  const slideWidth = useSlideWidth();
+  const slideWidth = useResizeObserver();
   const [videoDuration, setVideoDuration] = useState(null);
 
   const progressBarRef = useRef();
