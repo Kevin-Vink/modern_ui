@@ -177,7 +177,7 @@ function Slide({
               <source src={`${media}`} type="video/mp4" />
             </video>
             <div className="absolute z-0 left-0 top-0 h-full w-full
-            bg-gradient-to-br from-woodsmoke/50 via-transparent to-transparent"
+            lg:bg-gradient-to-br from-woodsmoke/50 via-transparent to-transparent"
             />
             <div className="absolute top-6 lg:top-8 left-6 lg:left-8
             max-w-[10rem]w lg:max-w-[14rem] flex flex-col gap-y-10"
