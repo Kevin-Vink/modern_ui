@@ -211,7 +211,7 @@ function Slide({
           </>
         )}
         <div className={`${index === currentSlide ? 'block' : 'hidden'} 
-        absolute left-0 bottom-0 w-full h-1.5 md:h-2.5 bg-neutral-600/25 backdrop-blur-md
+        absolute left-0 bottom-0 w-full h-1.5 md:h-2.5 bg-neutral-600/25 blur-bg-md
         rounded-b-2xl overflow-hidden`}
         >
           <div

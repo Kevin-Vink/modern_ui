@@ -3,7 +3,9 @@ import { AlertOctagon } from 'react-feather';
 
 function MenuItem({ text = 'No name given', icon = <AlertOctagon />, isNew = false }) {
   return (
-    <div className="flex gap-x-2 items-center rounded-md w-full h-full p-2 bg-woodsmoke-400 relative">
+    <div className="flex gap-x-2 items-center rounded-md w-full h-full p-2
+    bg-woodsmoke-400 lg:bg-woodsmoke-300 relative"
+    >
       <div className="rounded-full w-fit h-fit bg-woodsmoke-200 p-2">
         {cloneElement(icon, { className: 'w-4 h-4 stroke-blue-500 fill-blue-600/30' })}
       </div>

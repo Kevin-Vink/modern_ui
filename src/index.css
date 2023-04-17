@@ -8,6 +8,6 @@
   }
 }
 
-header {
+.blur-bg-md {
   backdrop-filter: blur(12px);
 }
