@@ -28,7 +28,10 @@ function Carousel() {
       // We grab the first slides of the array
       const firstSlides = slidesData.slice(0, slidesData.length - 3);
       // We find the center of the remaining array
-      const center = slidesData.length % 2 === 0 ? Math.ceil(firstSlides.length / 2) - 1 : Math.ceil(firstSlides.length / 2);
+      const center = slidesData.length % 2 === 0
+        ? Math.ceil(firstSlides.length / 2) - 1
+        : Math.ceil(firstSlides.length / 2);
+
       // We place the three slides in the center of the array
       const orderedSlides = [
         ...firstSlides.slice(0, center),
