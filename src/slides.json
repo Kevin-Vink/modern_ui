@@ -47,5 +47,12 @@
     "cta": "View the article",
     "media": "./videos/2.mp4",
     "type": "video"
+  },
+  {
+    "label": "new product",
+    "title": "New Award Winning UI/UX Design",
+    "cta": "View the award winning design",
+    "media": "./videos/3.mp4",
+    "type": "video"
   }
 ]

@@ -80,7 +80,7 @@ function Carousel() {
             index={index + 1}
             setSlide={setSlide}
             setDuration={setDuration}
-            center={Math.ceil(slides.length / 2)}
+            center={slides.length % 2 === 0 ? Math.ceil(slides.length / 2) + 0.5 : Math.ceil(slides.length / 2)}
             slides={slides.length}
             duration={duration}
             currentSlide={slide}
