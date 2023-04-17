@@ -117,7 +117,7 @@ function Slide({
       onClick={() => setSlide(index)}
       {...handlers}
       className={`slide w-slide-sm lg:w-slide-lg xl:w-slide-xl relative bg-neutral-700 duration-750 ease-out
-       ${index === currentSlide ? 'z-10' : 'z-0'} rounded-2xl transition-all`}
+       ${index === currentSlide ? 'z-10' : 'z-0'} rounded-2xl duration-500 transition-transform`}
       style={{
         transform: `translateX(${translateSlide()}px)`,
         opacity: setOpacity(),
