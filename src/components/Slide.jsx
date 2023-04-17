@@ -149,14 +149,14 @@ function Slide({
                 <Image className="stroke-neutral-500" size={60} />
               </div>
             )}
-            <div className="flex z-10 flex-col gap-y-6 xl:gap-y-12 max-w-[10rem]w lg:max-w-[14rem]">
+            <div className="flex flex-col gap-y-6 xl:gap-y-12 max-w-[10rem]w lg:max-w-[14rem]">
               <span
                 className="py-1 px-2 rounded group-hover:bg-blue-600 transition-colors font-medium
-                tracking-widest w-fit text-xs bg-blue-700 uppercase select-none"
+                tracking-widest w-fit z-10 text-xs bg-blue-700 uppercase select-none"
               >
                 {label}
               </span>
-              <p className="font-bold text-xl xl:text-3xl text-left select-none">{title}</p>
+              <p className="font-bold z-10 text-xl xl:text-3xl text-left select-none">{title}</p>
             </div>
             <a
               className="font-medium text-sm lg:text-base inline-flex items-center group-hover:gap-x-3
@@ -194,11 +194,11 @@ function Slide({
             >
               <span
                 className="py-1 px-2 rounded group-hover:bg-blue-600 transition-colors font-medium
-                  tracking-widest w-fit text-xs bg-blue-700 uppercase select-none "
+                  tracking-widest w-fit z-10 text-xs bg-blue-700 uppercase select-none "
               >
                 {label}
               </span>
-              <p className="font-bold text-xl xl:text-3xl text-left select-none">{title}</p>
+              <p className="font-bold z-10 text-xl xl:text-3xl text-left select-none">{title}</p>
             </div>
             <a
               className="font-medium text-sm lg:text-base group-hover:gap-x-3 items-center select-none
