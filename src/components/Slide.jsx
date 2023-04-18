@@ -62,8 +62,16 @@ function Slide({
     }
   }
 
+  function handleTap() {
+    if (index !== currentSlide) {
+      setSlide(index);
+    }
+  }
+
   const handlers = useSwipeable({
     onSwiped: (eventData) => handleSwipe(eventData),
+    onTap: () => handleTap(),
+    delta: 100,
     trackMouse: true,
   });
 
@@ -114,9 +122,8 @@ function Slide({
   return (
     <button
       type="button"
-      onClick={() => setSlide(index)}
       {...handlers}
-      className={`slide w-slide-sm lg:w-slide-lg xl:w-slide-xl relative bg-neutral-700 duration-750 ease-out
+      className={`slide w-slide-sm lg:w-slide-lg xl:w-slide-xl relative bg-neutral-700
        ${index === currentSlide ? 'z-10' : 'z-0'} rounded-2xl duration-500 transition-transform`}
       style={{
         transform: `translateX(${translateSlide()}px)`,
