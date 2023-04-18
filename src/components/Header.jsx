@@ -12,9 +12,13 @@ import {
   Smartphone,
   Tag,
 } from 'react-feather';
+
+import { Link } from 'react-router-dom';
 import Button from './Button';
 import MenuItem from './MenuItem';
 import useScrollPosition from '../hooks/useScrollPosition';
+import LargeMenuItem from './LargeMenuItem';
+import Dropdown from './Dropdown';
 
 function Header() {
   const [showMenu, setShowMenu] = useState(false);
@@ -23,7 +27,7 @@ function Header() {
 
   return (
     <div className="absolute top-0 left-0 right-0 bottom-0">
-      <header className="w-full z-50 sticky xl:!h-auto py-4 top-0 left-0 flex flex-col">
+      <header className="w-full py-4 xl:py-0 z-50 sticky xl:!h-auto top-0 left-0 flex flex-col">
         <div className={`absolute top-0 left-0 right-0 bottom-auto z-[-1] h-full w-full 
         transition-colors duration-300 pointer-events-none 
           ${showMenu ? 'h-screen bg-woodsmoke/95' : ''}  
@@ -49,57 +53,128 @@ function Header() {
             />
             <h1 className="font-medium text-xl text-white">UIfy</h1>
           </div>
-          <div>
-            <ul className="relative hidden xl:flex flex-row gap-x-10 items-center">
-              <li className="text-sm text-white font-medium tracking-wide
-            cursor-pointer flex items-center gap-x-1 group"
-              >
-                Products
-                <ChevronDown className="group-hover:rotate-180 transition-transform" size={20} />
+          <ul className="relative hidden xl:flex flex-row gap-x-10 items-center">
+            <li className="text-sm w-full h-full text-white font-medium tracking-wide
+            cursor-pointer flex items-center gap-x-1 group mt-6 pb-6 relative"
+            >
+              Products
+              <ChevronDown className="group-hover:rotate-180 transition-transform" size={20} />
 
-                <div className="absolute top-10 invisible group-hover:visible transition-all rounded-xl
-              bg-woodsmoke-400 flex flex-col gap-y-2 p-4 before:w-5 before:h-5
-              before:absolute before:-top-1 before:left-[3.75rem] before:bg-woodsmoke-400 before:rotate-45"
+              <Dropdown>
+                <LargeMenuItem
+                  text="UI Components"
+                  description="Library of customizable UI components for web app development."
+                  icon={<Grid />}
+                  isPopular
+                />
+
+                <LargeMenuItem
+                  text="Class Library"
+                  description="Collection of reusable code and components to enhance functionality."
+                  icon={<Layers />}
+                />
+
+                <LargeMenuItem
+                  text="Inspiration"
+                  description="Source of creative inspiration and design ideas."
+                  icon={<Database />}
+                />
+
+                <LargeMenuItem
+                  text="Mobile App"
+                  description="Examples of mobile app development work and services offered."
+                  icon={<Smartphone />}
+                  isNew
+                />
+
+              </Dropdown>
+            </li>
+            <li className="text-sm w-full h-full text-white font-medium tracking-wide
+                cursor-pointer flex items-center gap-x-1 group mt-6 pb-6 relative"
+            >
+              Solutions
+              <ChevronDown className="group-hover:rotate-180 transition-transform" size={20} />
+
+              <Dropdown>
+                <LargeMenuItem
+                  text="Web Design"
+                  description="Showcase of functional and visually appealing websites."
+                  icon={<Monitor />}
+                />
+
+                <LargeMenuItem
+                  text="Animation"
+                  description="Examples of captivating animated creations"
+                  icon={<Play />}
+                />
+
+                <LargeMenuItem
+                  text="Branding"
+                  description="Help in establishing a strong and recognizable brand identity"
+                  icon={<Tag />}
+                />
+
+                <LargeMenuItem
+                  text="Illustration"
+                  description="Creation of unique and captivating visuals"
+                  icon={<PenTool />}
+                />
+
+                <LargeMenuItem
+                  text="Product Design"
+                  description="Bringing ideas to life through functional and aesthetically pleasing designs."
+                  icon={<Package />}
+                  isNew
+                />
+
+                <LargeMenuItem
+                  text="Mobile"
+                  description="Creation of user-friendly and engaging mobile applications"
+                  icon={<Smartphone />}
+                  isPopular
+                />
+              </Dropdown>
+            </li>
+            <li className="text-sm w-full h-full text-white font-medium tracking-wide
+            cursor-pointer flex items-center gap-x-1 group mt-6 pb-6 relative"
+            >
+              Company
+              <ChevronDown className="group-hover:rotate-180 transition-transform" size={20} />
+
+              <div className="absolute left-12 top-full z-10 invisible
+                group-hover:visible flex w-screen max-w-max -translate-x-1/2 px-4 before:w-5 before:h-5
+              before:absolute before:-top-1 before:left-32 before:bg-woodsmoke-400 before:rotate-45"
+              >
+                <div className="w-screen max-w-[12rem] flex-auto overflow-hidden
+                  rounded-xl bg-woodsmoke-400 text-sm leading-6 shadow-lg ring-1 ring-gray-900/5"
                 >
-                  <h2>New</h2>
-                  <div className="grid grid-cols-2 text-white gap-4 w-full">
-                    <MenuItem text="UI Components" icon={<Grid />} />
-                    <MenuItem text="Class Library" icon={<Layers />} />
-                    <MenuItem text="Inspiration" icon={<Database />} />
-                    <MenuItem text="Mobile App" icon={<Smartphone />} isNew />
+                  <div className="py-6 flex flex-col gap-y-2 justify-center items-center">
+                    <Link to="1" className="hover:text-blue-500 transition-colors">About UIfy</Link>
+                    <Link to="1" className="hover:text-blue-500 transition-colors">Careers</Link>
+                    <Link to="1" className="hover:text-blue-500 transition-colors">Education</Link>
+                    <Link to="1" className="hover:text-blue-500 transition-colors">Sustainability</Link>
+                    <Link to="1" className="hover:text-blue-500 transition-colors">Contact</Link>
                   </div>
                 </div>
-              </li>
-              <li className="text-sm text-white font-medium tracking-wide
-            cursor-pointer flex items-center gap-x-1 group"
-              >
-                Solutions
-                <ChevronDown className="group-hover:rotate-180 transition-transform" size={20} />
-              </li>
-              <li className="text-sm text-white font-medium tracking-wide
-            cursor-pointer flex items-center gap-x-1 group"
-              >
-                Company
-                <ChevronDown className="group-hover:rotate-180 transition-transform" size={20} />
-              </li>
+              </div>
+            </li>
 
-              <li className="text-sm text-white font-medium tracking-wide cursor-pointer
+            <li className="text-sm text-white font-medium tracking-wide cursor-pointer
             hover:text-blue-400 focus:text-blue-400 transition-colors"
-              >
-                Customers
-              </li>
-              <li className="text-sm text-white font-medium tracking-wide cursor-pointer
+            >
+              Customers
+            </li>
+            <li className="text-sm text-white font-medium tracking-wide cursor-pointer
             hover:text-blue-400 focus:text-blue-400 transition-colors"
-              >
-                Pricing
-              </li>
-              <li className="text-sm text-white font-medium tracking-wide cursor-pointer
+            >
+              Pricing
+            </li>
+            <li className="text-sm text-white font-medium tracking-wide cursor-pointer
             hover:text-blue-400 focus:text-blue-400 transition-colors"
-              >
-                Blog
-              </li>
-            </ul>
-          </div>
+            >
+              Blog
+            </li>
+          </ul>
 
           <div className="hidden xl:flex z-30 flex-row gap-x-4 items-center">
             {isAuthenticated ? (

@@ -10,6 +10,9 @@ module.exports = {
         'slide-lg': '25rem',
         'slide-xl': '52.5rem',
       },
+      fontFamily: {
+        'cera-pro': ['Cera Pro', 'Trebuchet MS', 'sans-serif'],
+      },
       screens: {
         xs: '400px',
         '2xl': '1537px',
@@ -22,13 +25,16 @@ module.exports = {
         slide: 'inset 0 -175px 175px -75px #0e1012',
         'slide-drop': '0 0 100px 75px #0e1012',
       },
+      fontSize: {
+        '2xs': '0.625rem',
+      },
       colors: {
         woodsmoke: {
           DEFAULT: '#0E1012',
           50: '#5E6C79',
           100: '#55626E',
           200: '#444D57',
-          300: '#23262D',
+          300: '#2C303A',
           400: '#161A1D',
           500: '#0E1012',
           600: '#000000',
