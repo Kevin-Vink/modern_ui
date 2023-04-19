@@ -7,7 +7,7 @@ function MenuItem({
 }) {
   return (
     <Link to={to}>
-      <div className="flex gap-x-2 items-center rounded-md w-full h-full p-2
+      <div className="flex gap-x-2 items-center rounded-md w-full p-2
     bg-woodsmoke-400 lg:bg-woodsmoke-300 relative"
       >
         <div className="rounded-full w-fit h-fit bg-woodsmoke-200 p-2">
