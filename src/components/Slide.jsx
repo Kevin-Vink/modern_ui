@@ -14,6 +14,7 @@ function Slide({
   label, title, cta, media, index, currentSlide, setSlide, center, slides, type, setDuration,
 }) {
   const slideWidth = useResizeObserver();
+  const [translateX, setTranslateX] = useState(0);
   const [videoDuration, setVideoDuration] = useState(null);
 
   const progressBarRef = useRef();
@@ -37,6 +38,10 @@ function Slide({
 
     return index - center > 0 ? slideWidth : -slideWidth;
   }
+
+  useEffect(() => {
+    setTranslateX(translateSlide());
+  }, [index, currentSlide]);
 
   function setOpacity() {
     if (currentSlide === slides && index === 1) return '1';
@@ -62,6 +67,18 @@ function Slide({
     }
   }
 
+  function handleSwiping(eventData) {
+    if (translateX !== translateSlide() || index !== currentSlide) {
+      return;
+    }
+
+    if (eventData.dir.toLowerCase() === 'left') {
+      setTranslateX(translateSlide() + ((slideWidth / 10) * -1));
+    } else if (eventData.dir.toLowerCase() === 'right') {
+      setTranslateX(translateSlide() + (slideWidth / 10));
+    }
+  }
+
   function handleTap() {
     if (index !== currentSlide) {
       setSlide(index);
@@ -70,6 +87,7 @@ function Slide({
 
   const handlers = useSwipeable({
     onSwiped: (eventData) => handleSwipe(eventData),
+    onSwiping: (eventData) => handleSwiping(eventData),
     onTap: () => handleTap(),
     delta: 100,
     trackMouse: true,
@@ -126,7 +144,7 @@ function Slide({
       className={`slide w-slide-sm lg:w-slide-lg xl:w-slide-xl relative bg-neutral-700
        ${index === currentSlide ? 'z-10' : 'z-0'} rounded-2xl duration-500 transition-transform`}
       style={{
-        transform: `translateX(${translateSlide()}px)`,
+        transform: `translateX(${translateX}px)`,
         opacity: setOpacity(),
         pointerEvents: setPointerEvents(),
       }}
@@ -201,7 +219,7 @@ function Slide({
             >
               <span
                 className="py-1 px-2 rounded group-hover:bg-blue-600 transition-colors font-medium
-                  tracking-widest w-fit z-10 text-xs bg-blue-700 uppercase select-none "
+                  tracking-widest w-fit z-10 text-xs bg-blue-700 uppercase select-none"
               >
                 {label}
               </span>

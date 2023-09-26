@@ -54,5 +54,12 @@
     "cta": "View the award winning design",
     "media": "./videos/3.mp4",
     "type": "video"
+  },
+  {
+    "label": "new product",
+    "title": "Infrastructure Redesign",
+    "cta": "View changes",
+    "media": "./videos/4.mp4",
+    "type": "video"
   }
 ]

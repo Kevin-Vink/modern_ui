@@ -44,7 +44,10 @@ function Header() {
           >
             Skip to content (Press Enter)
           </button>
-          <div className="flex z-30 flex-row items-center gap-x-2 group">
+          <Link
+            to="/"
+            className="flex z-30 flex-row items-center gap-x-2 group"
+          >
             <Aperture
               className="stroke-blue-500 group-hover:rotate-180
           duration-700 ease-in-out transition-transform"
@@ -52,10 +55,10 @@ function Header() {
               size={30}
             />
             <h1 className="font-medium text-xl text-white">UIfy</h1>
-          </div>
+          </Link>
           <ul className="relative hidden xl:flex flex-row gap-x-10 items-center">
             <li className="text-sm w-full h-full text-white font-medium tracking-wide
-            cursor-pointer flex items-center gap-x-1 group mt-6 pb-6 relative"
+            cursor-pointer flex items-center gap-x-1 group mt-6 pb-6 relative focus:text-blue-400 transition-colors"
             >
               Products
               <ChevronDown className="group-hover:rotate-180 transition-transform" size={20} />
@@ -94,7 +97,7 @@ function Header() {
               </Dropdown>
             </li>
             <li className="text-sm w-full h-full text-white font-medium tracking-wide
-                cursor-pointer flex items-center gap-x-1 group mt-6 pb-6 relative"
+                cursor-pointer flex items-center gap-x-1 group mt-6 pb-6 relative focus:text-blue-400 transition-colors"
             >
               Solutions
               <ChevronDown className="group-hover:rotate-180 transition-transform" size={20} />
@@ -146,7 +149,7 @@ function Header() {
               </Dropdown>
             </li>
             <li className="text-sm w-full h-full text-white font-medium tracking-wide
-            cursor-pointer flex items-center gap-x-1 group mt-6 pb-6 relative"
+            cursor-pointer flex items-center gap-x-1 group mt-6 pb-6 relative focus:text-blue-400 transition-colors"
             >
               Company
               <ChevronDown className="group-hover:rotate-180 transition-transform" size={20} />
@@ -160,11 +163,36 @@ function Header() {
                   rounded-xl bg-woodsmoke-400 text-sm leading-6 shadow-lg ring-1 ring-gray-900/5"
                 >
                   <div className="py-6 flex flex-col gap-y-2 justify-center items-center">
-                    <Link to="about" className="hover:text-blue-500 transition-colors">About UIfy</Link>
-                    <Link to="careers" className="hover:text-blue-500 transition-colors">Careers</Link>
-                    <Link to="education" className="hover:text-blue-500 transition-colors">Education</Link>
-                    <Link to="sustainability" className="hover:text-blue-500 transition-colors">Sustainability</Link>
-                    <Link to="contact" className="hover:text-blue-500 transition-colors">Contact</Link>
+                    <Link
+                      to="about"
+                      className="hover:text-blue-500 transition-colors"
+                    >
+                      About UIfy
+                    </Link>
+                    <Link
+                      to="careers"
+                      className="hover:text-blue-500 transition-colors"
+                    >
+                      Careers
+                    </Link>
+                    <Link
+                      to="education"
+                      className="hover:text-blue-500 transition-colors"
+                    >
+                      Education
+                    </Link>
+                    <Link
+                      to="sustainability"
+                      className="hover:text-blue-500 transition-colors"
+                    >
+                      Sustainability
+                    </Link>
+                    <Link
+                      to="contact"
+                      className="hover:text-blue-500 transition-colors"
+                    >
+                      Contact
+                    </Link>
                   </div>
                 </div>
               </div>
