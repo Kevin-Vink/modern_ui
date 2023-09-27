@@ -65,12 +65,15 @@ function Slide({
     } else if (eventData.dir.toLowerCase() === 'right') {
       setSlide(currentSlide === 1 ? slides : currentSlide - 1);
     }
+    document.body.style.overflowY = 'auto';
   }
 
   function handleSwiping(eventData) {
     if (translateX !== translateSlide() || index !== currentSlide) {
       return;
     }
+
+    document.body.style.overflowY = 'hidden';
 
     if (eventData.dir.toLowerCase() === 'left') {
       setTranslateX(translateSlide() + ((slideWidth / 10) * -1));
