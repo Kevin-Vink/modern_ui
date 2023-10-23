@@ -28,7 +28,14 @@ module.exports = {
       fontSize: {
         '2xs': '0.625rem',
       },
+      gridTemplateColumns: {
+        sidebar: '300px auto', // for sidebar layout
+        'sidebar-collapsed': '64px auto', // for collapsed sidebar layout
+      },
       colors: {
+        default: {
+          DEFAULT: '#202328',
+        },
         woodsmoke: {
           DEFAULT: '#0E1012',
           50: '#5E6C79',
