@@ -26,13 +26,16 @@ function ListItem({
           transition-transform group-hover:-rotate-6 group-hover:stroke-blue-500 group-focus:stroke-blue-500`,
         })}
         <h1 className={`${collapsed && 'absolute bg-woodsmoke-400 left-0 shadow-md rounded-md px-4 py-2 opacity-0 '
-      + 'pointer-events-none group-hover:opacity-100 group-hover:left-14 duration-500 ease-in-out '
+      + 'pointer-events-none group-hover:opacity-100 group-hover:left-14 duration-500 ease-in-out -top-1 '
       + 'group-focus:opacity-100 group-focus:left-14'} font-medium text-white`}
         >
           {title}
         </h1>
       </div>
-      { (!collapsed || showOnCollapsed) && children}
+      { (!collapsed) && children}
+      {(showOnCollapsed && collapsed) && (
+      <span className="w-1 h-1 rounded-full bg-red-500 absolute -right-2" />
+      )}
     </Link>
   );
 }
