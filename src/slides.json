@@ -61,5 +61,12 @@
     "cta": "View changes",
     "media": "./videos/4.mp4",
     "type": "video"
+  },
+  {
+    "label": "new product",
+    "title": "Bla Bla Bla",
+    "cta": "View changes",
+    "media": "./videos/5.mp4",
+    "type": "video"
   }
 ]
