@@ -40,20 +40,25 @@ function Slide({
   }
 
   useEffect(() => {
-    setTranslateX(translateSlide());
-  }, [index, currentSlide]);
+    // Wait for the slideWidth to be set
+    if (slideWidth) setTranslateX(translateSlide());
+  }, [index, currentSlide, slideWidth]);
 
   function setOpacity() {
+    // Show the current slide and the previous and next slide
     if (currentSlide === slides && index === 1) return '1';
     if (currentSlide === 1 && index === slides) return '1';
+    // Hide the rest of the slides
     if (index > (currentSlide + 1) || index < (currentSlide - 1)) return '0';
 
     return '1';
   }
 
   function setPointerEvents() {
+    // Show the current slide and the previous and next slide
     if (currentSlide === slides && index === 1) return 'auto';
     if (currentSlide === 1 && index === slides) return 'auto';
+    // Hide the rest of the slides
     if (index > (currentSlide + 1) || index < (currentSlide - 1)) return 'none';
 
     return 'auto';
@@ -61,8 +66,10 @@ function Slide({
 
   function handleSwipe(eventData) {
     if (eventData.dir.toLowerCase() === 'left') {
+      // If the current slide is the last slide, the next slide should be the first slide
       setSlide(currentSlide === slides ? 1 : currentSlide + 1);
     } else if (eventData.dir.toLowerCase() === 'right') {
+      // If the current slide is the first slide, the previous slide should be the last slide
       setSlide(currentSlide === 1 ? slides : currentSlide - 1);
     }
     document.body.style.overflowY = 'auto';
@@ -76,8 +83,14 @@ function Slide({
     document.body.style.overflowY = 'hidden';
 
     if (eventData.dir.toLowerCase() === 'left') {
+      // If the current slide is the last slide, the next slide should be the first slide
+      // We also need to add a little offset to the translateX value to make the slide be under the current slide
+      // (10% of the slide width) and negative because it's a left slide so it needs to go back to the right
       setTranslateX(translateSlide() + ((slideWidth / 10) * -1));
     } else if (eventData.dir.toLowerCase() === 'right') {
+      // If the current slide is the first slide, the previous slide should be the last slide
+      // We also need to add a little offset to the translateX value to make the slide be under the current slide
+      // (10% of the slide width)
       setTranslateX(translateSlide() + (slideWidth / 10));
     }
   }
@@ -177,7 +190,10 @@ function Slide({
                 <Image className="stroke-neutral-500" size={60} />
               </div>
             )}
-            <div className="flex flex-col gap-y-6 xl:gap-y-12 max-w-[10rem]w lg:max-w-[14rem]">
+            <div className="flex flex-col gap-y-6 xl:gap-y-12 max-w-[10rem]w lg:max-w-[18rem]">
+              <span className="absolute top-6 right-8 z-10 text-6xl font-thin shadow-inner text-neutral-300/50">
+                {index}
+              </span>
               <span
                 className="py-1 px-2 rounded group-hover:bg-blue-600 transition-colors font-medium
                 tracking-widest w-fit z-10 text-xs bg-blue-700 uppercase select-none"
@@ -196,7 +212,7 @@ function Slide({
             </a>
           </>
         ) : (
-          <>
+          <div className="relative">
             {media && media !== '' ? (
               <>
                 <video
@@ -217,8 +233,11 @@ function Slide({
                 <Film className="stroke-neutral-500" size={60} />
               </div>
             )}
+            <span className="absolute top-6 right-8 z-10 text-6xl font-thin shadow-inner text-neutral-300/50">
+              {index}
+            </span>
             <div className="absolute top-6 lg:top-8 left-6 lg:left-8
-            max-w-[10rem]w lg:max-w-[14rem] flex flex-col gap-y-10"
+            max-w-[10rem]w lg:max-w-[18rem] flex flex-col gap-y-10"
             >
               <span
                 className="py-1 px-2 rounded group-hover:bg-blue-600 transition-colors font-medium
@@ -236,7 +255,7 @@ function Slide({
               {cta}
               <ArrowRight size={20} />
             </a>
-          </>
+          </div>
         )}
         <div className={`${index === currentSlide ? 'block' : 'hidden'} 
         absolute left-0 bottom-0 w-full h-1.5 md:h-2.5 bg-neutral-600/25 blur-bg-md
