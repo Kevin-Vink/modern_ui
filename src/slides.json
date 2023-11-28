@@ -68,5 +68,33 @@
     "cta": "View changes",
     "media": "./videos/5.mp4",
     "type": "video"
+  },
+  {
+    "label": "christmas celebration",
+    "title": "Holiday Celebrations",
+    "cta": "View deals",
+    "media": "./videos/6.mp4",
+    "type": "video"
+  },
+  {
+    "label": "international branch expansion",
+    "title": "New Branch in Turkey, Istanbul",
+    "cta": "View new branch",
+    "media": "./videos/7.mp4",
+    "type": "video"
+  },
+  {
+    "label": "financial update",
+    "title": "Dubai Financial Center",
+    "cta": "View changes",
+    "media": "./videos/8.mp4",
+    "type": "video"
+  },
+  {
+    "label": "environmental update",
+    "title": "Emission reduction in 2024",
+    "cta": "View deals",
+    "media": "./videos/9.mp4",
+    "type": "video"
   }
 ]

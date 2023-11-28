@@ -8,7 +8,7 @@ function Home() {
       <div className="w-full h-full min-h-screen flex flex-col">
 
         <div className="w-full h-full flex-1 flex flex-col items-center justify-between 2xl:justify-evenly">
-          <div className="w-full z-20 min-h-[85vh] xl:min-h-[75vh] 2xl:min-h-0 h-full flex flex-col
+          <div className="w-full z-20 !min-h-[85vh] !xl:min-h-[75vh] 2xl:min-h-0 h-full flex flex-col
           justify-center items-center gap-y-8"
           >
             <h1 className="px-4 text-3xl xl:px-0 xl:text-7xl text-neutral-100 font-bold max-w-[45rem] text-center">

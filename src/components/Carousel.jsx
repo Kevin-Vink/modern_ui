@@ -12,7 +12,7 @@ function Carousel() {
 
   useEffect(() => {
     // The last 3 slides should be placed in the center of the array
-    if (slidesData.length > 3) {
+    if (slidesData.length > 3 && slides.length === 0) {
       // We grab the last 3 slides
       const lastThreeSlides = slidesData.slice(slidesData.length - 3);
 
@@ -73,13 +73,15 @@ function Carousel() {
     return () => clearInterval(interval);
   }, [slide, duration]);
 
+  console.log(slides);
+
   return (
     slides?.length > 2 && (
     <div className="overflow-x-clip w-full h-full flex flex-col items-center justify-center gap-y-6">
       <div className="h-full flex items-center">
         {slides.map((data, index) => (
           <Slide
-            key={data.title}
+            key={data.media}
             index={index + 1}
             setSlide={setSlide}
             setDuration={setDuration}

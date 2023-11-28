@@ -41,6 +41,7 @@ function Slide({
 
   useEffect(() => {
     // Wait for the slideWidth to be set
+    if (index === currentSlide) console.log(slideWidth, index);
     if (slideWidth) setTranslateX(translateSlide());
   }, [index, currentSlide, slideWidth]);
 
@@ -249,7 +250,7 @@ function Slide({
             </div>
             <a
               className="font-medium text-sm lg:text-base group-hover:gap-x-3 items-center select-none
-          transition-all gap-x-2 z-10 absolute bottom-6 lg:bottom-8 left-6 lg:left-8 inline-flex"
+          transition-all gap-x-2 z-10 absolute bottom-6 lg:bottom-12 left-6 lg:left-8 inline-flex"
               href="https://ui-design-2.netlify.app/#"
             >
               {cta}
