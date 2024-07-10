@@ -8,7 +8,7 @@ const Types = {
   Video: 'video',
 };
 
-const { REACT_APP_DURATION } = process.env;
+const { VITE_DURATION } = import.meta.env;
 
 function Slide({
   label, title, cta, media, index, currentSlide, setSlide, center, slides, type, setDuration,
@@ -41,7 +41,6 @@ function Slide({
 
   useEffect(() => {
     // Wait for the slideWidth to be set
-    if (index === currentSlide) console.log(slideWidth, index);
     if (slideWidth) setTranslateX(translateSlide());
   }, [index, currentSlide, slideWidth]);
 
@@ -142,10 +141,10 @@ function Slide({
           video.currentTime = 0;
         }, (videoDuration * 1000) + 200);
       } else if (!media || media === '') {
-        startProgressBar(REACT_APP_DURATION);
+        startProgressBar(VITE_DURATION);
       }
     } else if (currentSlide === index && type === Types.Image) {
-      startProgressBar(REACT_APP_DURATION);
+      startProgressBar(VITE_DURATION);
     }
 
     if (video && currentSlide !== index) {

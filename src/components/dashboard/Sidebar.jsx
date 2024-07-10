@@ -40,6 +40,7 @@ function Sidebar({ collapsed, handleCollapse }) {
           <button
             type="button"
             onClick={handleCollapse}
+            aria-label="collapse"
             className={`${collapsed ? 'rotate-180 -right-[2.375rem]' : '-right-4'} rounded-l-md hover:bg-default/75
           transition-all duration-300 ease-in-out transform absolute bg-default px-px py-1`}
           >

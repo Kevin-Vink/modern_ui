@@ -3,11 +3,11 @@ import { ChevronLeft, ChevronRight } from 'react-feather';
 import Slide from './Slide';
 import slidesData from '../slides.json';
 
-const { REACT_APP_DURATION } = process.env;
+const { VITE_DURATION } = import.meta.env;
 
 function Carousel() {
   const [slide, setSlide] = useState(Math.ceil((slidesData.length / 2)));
-  const [duration, setDuration] = useState(parseInt(REACT_APP_DURATION, 10));
+  const [duration, setDuration] = useState(parseInt(VITE_DURATION, 10));
   const [slides, setSlides] = useState([]);
 
   useEffect(() => {
@@ -72,8 +72,6 @@ function Carousel() {
 
     return () => clearInterval(interval);
   }, [slide, duration]);
-
-  console.log(slides);
 
   return (
     slides?.length > 2 && (
